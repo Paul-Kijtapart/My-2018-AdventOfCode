@@ -17,4 +17,4 @@ from day3.Solution import Solution as Solution3
 
 
 # DAY 3
-num_overlap = Solution3.mark_fabric_matrix()
+Solution3.analyze_fabric()

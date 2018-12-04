@@ -2,6 +2,15 @@ class Solution:
 
     @classmethod
     def parse_claim(cls, claim_str):
+        """Parse claim str
+
+        Args:
+            claim_str(str):
+
+        Returns:
+            dict
+
+        """
         id, claim_opts = claim_str.split('@')
         position, size = claim_opts.split(':')
         row_index, col_index = position.split(',')
@@ -17,7 +26,8 @@ class Solution:
         }
 
     @classmethod
-    def mark_fabric_matrix(cls):
+    def analyze_fabric(cls):
+        """Analyze the fabric"""
         fabric = cls.get_fabric()
         fabric_matrix = fabric['matrix']
         fabric_ids = fabric['ids']
@@ -37,6 +47,7 @@ class Solution:
                 width = parsed_claim['width']
                 height = parsed_claim['height']
 
+                # start checking each matric cell
                 try:
                     for i in range(row_index, row_index + width):
                         for j in range(col_index, col_index + height):
@@ -62,7 +73,7 @@ class Solution:
                     print('Failed at ( row {}, col: {} )'.format(i, j))
                     raise error
 
-            # count marked cells
+            # count all overlapped cells
             ret = 0
             for i in range(num_row):
                 for j in range(num_col):
@@ -75,11 +86,13 @@ class Solution:
             print('Remaining fabric ids: ', fabric_ids)
             print('ID count after mark: ', len(fabric_ids))
 
-            return ret
-
     @classmethod
     def get_fabric(cls):
-        # check size of this fabrix matrix
+        """Process given fabric
+
+        Returns:
+            dict
+        """
         num_row = 0
         num_col = 0
         ids = set()
