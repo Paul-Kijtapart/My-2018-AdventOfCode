@@ -1,5 +1,6 @@
 from day1.Solution import Solution
 from day2.Solution import Solution as Solution2
+from day3.Solution import Solution as Solution3
 
 # DAY 1
 # total_frequency = Solution.sum_frequency_changes()
@@ -13,3 +14,7 @@ from day2.Solution import Solution as Solution2
 # print('Checksum : ', checksum)
 # common = Solution2.get_common_from_boxes()
 # print('Common from two boxes: ', common)
+
+
+# DAY 3
+num_overlap = Solution3.mark_fabric_matrix()
