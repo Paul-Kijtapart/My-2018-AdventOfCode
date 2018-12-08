@@ -1,6 +1,7 @@
 from day1.Solution import Solution
 from day2.Solution import Solution as Solution2
 from day3.Solution import Solution as Solution3
+from day4.Solution import Solution as Solution4
 
 # DAY 1
 # total_frequency = Solution.sum_frequency_changes()
@@ -17,4 +18,7 @@ from day3.Solution import Solution as Solution3
 
 
 # DAY 3
-Solution3.analyze_fabric()
+# Solution3.analyze_fabric()
+
+# DAY 4
+Solution4.question_2()
