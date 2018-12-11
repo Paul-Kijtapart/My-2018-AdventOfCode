@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 class Solution:
 
     @classmethod
@@ -20,22 +23,30 @@ class Solution:
 
         """
         units = list(polymer)
-        has_reactive = True
+        ret = []
 
-        while has_reactive:
-            has_reactive = False
-            i = 1
+        for i in range(len(units)):
+            if len(ret) == 0:
+                ret.append(units[i])
+                continue
 
-            while i < len(units):
-                if cls.check_reactive(units[i], units[i - 1]):
-                    units[i] = -1
-                    units[i - 1] = -1
-                    has_reactive = True
-                    i += 1
-                i += 1
+            peek = ret[-1]
+            if cls.check_reactive(peek, units[i]):
+                ret.pop()
+            else:
+                ret.append(units[i])
+        return ret
 
-            units = [unit for unit in units if unit != -1]
-        return units
+    @classmethod
+    def find_shortest_polymer(cls, polymer):
+        genes = 'abcdefghijklmnopqrstuvwxyz'  # all possible genes
+        shortest = None
+        for gen in genes:
+            curr_filtered_units = polymer.replace(gen, '').replace(gen.upper(), '')
+            curr_scanned_units = cls.scan_polymer(curr_filtered_units)
+            shortest = min(shortest, len(curr_scanned_units)) if shortest is not None else len(curr_scanned_units)
+
+        return shortest
 
     @classmethod
     def check_reactive(cls, g1, g2):

@@ -27,6 +27,9 @@ from day5.Solution import Solution as Solution5
 # DAY 5
 # polymer = 'dabAcCaCBAcCcaDA'  # Solution5.load_polymer()
 polymer = Solution5.load_polymer()
-units = Solution5.scan_polymer(polymer)
+# print('Total unit count : ', len(polymer))
+# units = Solution5.scan_polymer(polymer)
+shortest_polymer = Solution5.find_shortest_polymer(polymer)
 # print('Units: {}'.format(units))
-print('Num units: {}'.format(len(units)))
+# print('Num units: {}'.format(len(units)))
+print('Shortest polymer: ', shortest_polymer)
