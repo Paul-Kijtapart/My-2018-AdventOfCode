@@ -88,8 +88,6 @@ class Solution:
         corner_points = cls.get_corner_points(matrix, matrix_stats)
 
         valid_areas = [{'coord': coord, 'count': count} for coord, count in point_counter.items() if coord not in corner_points]
-        print(valid_areas)
-        print('gg')
 
     @classmethod
     def parse_point(cls, point_str):
