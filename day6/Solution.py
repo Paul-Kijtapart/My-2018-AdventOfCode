@@ -56,8 +56,8 @@ class Solution:
         num_column = matrix_stats['num_column']
         num_row = matrix_stats['num_row']
 
-        for col in range(start_x, end_x):
-            for row in range(start_y, end_y):
+        for col in range(start_x, end_x + 1):
+            for row in range(start_y, end_y + 1):
                 curr_point = Point(x=col, y=row)
                 closest_dist = num_column + num_row
                 filled_point = None
@@ -87,7 +87,17 @@ class Solution:
         point_counter = Counter(matrix.values())
         corner_points = cls.get_corner_points(matrix, matrix_stats)
 
-        valid_areas = [{'coord': coord, 'count': count} for coord, count in point_counter.items() if coord not in corner_points]
+        valid_areas = [{'point': coord, 'count': count} for coord, count in point_counter.items() if
+                       coord not in corner_points]
+
+        coord = None
+        max_area = 0
+        for area in valid_areas:
+            if area['count'] > max_area:
+                max_area = area['count']
+                coord = area['point']
+
+        print('Point: {}, and area: {}'.format(coord, max_area))
 
     @classmethod
     def parse_point(cls, point_str):
