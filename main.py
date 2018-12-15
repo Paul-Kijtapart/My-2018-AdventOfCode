@@ -4,6 +4,7 @@ from day3.Solution import Solution as Solution3
 from day4.Solution import Solution as Solution4
 from day5.Solution import Solution as Solution5
 from day6.Solution import Solution as Solution6
+from day7.Solution import Solution as Solution7
 
 # DAY 1
 # total_frequency = Solution.sum_frequency_changes()
@@ -36,4 +37,7 @@ from day6.Solution import Solution as Solution6
 # print('Shortest polymer: ', shortest_polymer)
 
 # DAY 6
-answer1 = Solution6.question_1()
+# answer1 = Solution6.question_1()
+
+# DAY 7
+answer1 = Solution7.question_1()
